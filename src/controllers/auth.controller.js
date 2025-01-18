@@ -154,7 +154,7 @@ export const loginGoogle = async (req, res) => {
 
     const { googleId: _, ...userWithoutGoogleId } = user.toObject();
 
-    res.status(201).json({
+    res.status(200).json({
       token,
       user: userWithoutGoogleId,
     });

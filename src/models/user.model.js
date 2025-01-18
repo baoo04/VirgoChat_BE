@@ -7,23 +7,11 @@ const userSchema = new mongoose.Schema(
       sparse: true,
       unique: true,
       required: function () {
-        return !this.facebookId
-      }
+        return !this.facebookId;
+      },
     },
     face: {
-      faceUrl: {
-        type: String,
-        unique: true,
-        sparse: true,
-      },
-      faceEmbeddings: {
-        type: [Number],
-        unique: true,
-        sparse: true,
-        required: function () {
-          return this.faceId.faceIdUrl
-        }
-      }
+      type: Array,
     },
     googleId: {
       type: String,
@@ -53,8 +41,8 @@ const userSchema = new mongoose.Schema(
       type: String,
       minlength: 6,
       required: function () {
-        return !this.googleId && !this.facebookId
-      }
+        return !this.googleId && !this.facebookId;
+      },
     },
     avatar: {
       type: String,
