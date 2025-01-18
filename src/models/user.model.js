@@ -10,8 +10,10 @@ const userSchema = new mongoose.Schema(
         return !this.facebookId;
       },
     },
-    face: {
+    faceId: {
       type: Array,
+      unique: true, 
+      sparse: true,
     },
     googleId: {
       type: String,
