@@ -26,7 +26,7 @@ const swaggerOptions = {
       version: "1.0.0",
       description: "API documentation for Express.js",
     },
-    servers: [{ url: "http://localhost:7000" }],
+    servers: [{ url: "https://virgochat-be.onrender.com" }],
   },
   apis: ["./routes/*.js"],
 };
