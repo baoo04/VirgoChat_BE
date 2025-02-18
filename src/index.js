@@ -28,7 +28,7 @@ const swaggerOptions = {
     },
     servers: [{ url: "https://virgochat-be.onrender.com" }],
   },
-  apis: ["./routes/*.js", "./controllers/*.js"],
+  apis: ["src/routes/*.js", "src/controllers/*.js"],
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
