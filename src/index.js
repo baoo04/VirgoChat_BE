@@ -19,7 +19,7 @@ dotenv.config();
 const PORT = process.env.PORT;
 
 const swaggerOptions = {
-  swaggerDefinition: {
+  definition: {
     openapi: "3.0.0",
     info: {
       title: "Express API with Swagger",

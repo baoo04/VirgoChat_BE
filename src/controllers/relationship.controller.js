@@ -1,5 +1,30 @@
 import Relationship from "../models/relationship.model.js";
 
+/**
+ * @swagger
+ * /api/relationships/block:
+ *   post:
+ *     summary: Chặn người dùng
+ *     tags: [Relationship]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               userId:
+ *                 type: string
+ *                 example: "654321abcdef"
+ *     responses:
+ *       200:
+ *         description: Chặn người dùng thành công
+ *       400:
+ *         description: Lỗi yêu cầu
+ *       500:
+ *         description: Lỗi máy chủ
+ */
+
 export const blockUser = async (req, res) => {
   const { userId } = req.body;
 
