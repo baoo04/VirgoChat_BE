@@ -541,26 +541,3 @@ export const updatePassword = async (req, res) => {
     res.status(500).json({ message: "Lỗi máy chủ nội bộ" });
   }
 };
-
-/**
- * @swagger
- * /api/auth/login:
- *   post:
- *     summary: User login
- *     description: Authenticate user and return a token
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               email:
- *                 type: string
- *               password:
- *                 type: string
- *     responses:
- *       200:
- *         description: Successful login
- */
-router.post("/login", authController.login);

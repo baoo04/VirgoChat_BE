@@ -38,4 +38,26 @@ router.put("/update/info", protectRoute, updateInfo);
 router.put("/update/face-id", protectRoute, updateFaceId);
 router.put("/update/password", protectRoute, updatePassword);
 
+/**
+ * @swagger
+ * /api/auth/login:
+ *   post:
+ *     summary: User login
+ *     description: Authenticate user and return a token
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Successful login
+ */
+
 export default router;
