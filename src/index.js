@@ -11,13 +11,12 @@ import roomRouters from "./routes/room.route.js";
 import notificationRoutes from "./routes/notification.route.js";
 import relationshipRoutes from "./routes/relationship.route.js";
 import { server, app } from "./services/socket.service.js";
+import swaggerJsDoc from "swagger-jsdoc";
+import swaggerUi from "swagger-ui-express";
 
 dotenv.config();
 
 const PORT = process.env.PORT;
-
-const swaggerJsDoc = require("swagger-jsdoc");
-const swaggerUi = require("swagger-ui-express");
 
 const swaggerOptions = {
   swaggerDefinition: {
