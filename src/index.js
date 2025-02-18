@@ -10,14 +10,33 @@ import userRouters from "./routes/user.router.js";
 import roomRouters from "./routes/room.route.js";
 import notificationRoutes from "./routes/notification.route.js";
 import relationshipRoutes from "./routes/relationship.route.js";
-import { server, app } from './services/socket.service.js';
+import { server, app } from "./services/socket.service.js";
 
 dotenv.config();
 
 const PORT = process.env.PORT;
 
-app.use(express.json({ limit: "2mb" }));
-app.use(express.urlencoded({ limit: "2mb", extended: true }))
+const swaggerJsDoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
+
+const swaggerOptions = {
+  swaggerDefinition: {
+    openapi: "3.0.0",
+    info: {
+      title: "Express API with Swagger",
+      version: "1.0.0",
+      description: "API documentation for Express.js",
+    },
+    servers: [{ url: "http://localhost:7000" }],
+  },
+  apis: ["./routes/*.js"],
+};
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
+app.use(express.json({ limit: "12mb" }));
+app.use(express.urlencoded({ limit: "12mb", extended: true }));
 app.use(cookieParser());
 app.use(
   cors({
@@ -32,7 +51,6 @@ app.use("/api/rooms", roomRouters);
 app.use("/api/messages", messageRoutes);
 app.use("/api/notifications", notificationRoutes);
 app.use("/api/relationships", relationshipRoutes);
-
 
 server.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);
